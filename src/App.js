@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
+import { useState } from "react";
+
+//components
+import GlobalStyles from "./components/GlobalStyles";
+import Nav from "./components/Nav";
+import MainMint from "./components/MainMint";
+import Landing from "./pages/landing";
+import About from "./pages/about";
+import Tokenomics from "./pages/tokenomics";
+import Rarity from "./pages/rarity";
+import Footer from "./components/Footer";
 function App() {
+  const [accounts, setAccounts] = useState([]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="App">
+        <GlobalStyles></GlobalStyles>
+        <Nav accounts={accounts} setAccounts={setAccounts}></Nav>
+        {/* <MainMint accounts={accounts} setAccounts={setAccounts}></MainMint> */}
+        <Landing />
+        <About />
+        <Tokenomics />
+        <Rarity />
+        {/* <Minting accounts={accounts} setAccounts={setAccounts} /> */}
+        <Footer />
+      </div>
+    </>
   );
 }
 
